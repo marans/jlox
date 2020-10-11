@@ -4,6 +4,10 @@ all: compile
 compile: generate
 	@javac -d bin -sourcepath src src/com/craftinginterpreters/lox/Lox.java
 
-generate:
+generate: output
 	@javac -d bin -sourcepath src src/com/craftinginterpreters/tool/GenerateAst.java
-	@ java -classpath bin com/craftinginterpreters/tool/GenerateAst src/com/craftinginterpreters/lox
+	@java -classpath bin com/craftinginterpreters/tool/GenerateAst src/com/craftinginterpreters/lox
+
+output:
+	@mkdir -p bin
+
